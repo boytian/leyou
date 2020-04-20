@@ -1,0 +1,24 @@
+# 端口号, server name, eureka, 数据库连接 datasource  ;mybatis-plus;
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///leyou?characterEncoding=UTF-8
+    username: root
+    password: tiantian
+#myBatis-plus
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #输出sql日志
+  mapper-locations: classpath*:mapper/**Mapper.xml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 5
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
