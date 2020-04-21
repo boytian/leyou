@@ -1,7 +1,10 @@
 package com.leyou.item.service;
 
+import com.leyou.item.dto.CategoryDTO;
 import com.leyou.item.entity.TbCategory;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-04-19
  */
 public interface TbCategoryService extends IService<TbCategory> {
-
+    List<CategoryDTO> tbCategoryService(Long pid);
 }
