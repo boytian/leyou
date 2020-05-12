@@ -3,16 +3,12 @@ package com.leyou.item.controller;
 import com.leyou.common.enums.ExcptionEnum;
 import com.leyou.common.exception.LyException;
 import com.leyou.item.entity.Item;
-import com.leyou.item.entity.TbUser;
-import com.leyou.item.service.TbUserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,20 +18,6 @@ import java.util.Map;
  */
 @RestController
 public class TestMybatisController {
-
-    @Resource
-    private TbUserService userService;
-
-    /**
-     * 测试逆向工程是否能用
-     * @param id
-     * @return
-     */
-    @GetMapping("/user/{id}")
-    public TbUser testMybatis( @PathVariable  Long id){
-        TbUser user = userService.getById(id);
-        return user;
-    }
 
     /**
      * 测试返回

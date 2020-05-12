@@ -2,6 +2,10 @@ package com.leyou.item.mapper;
 
 import com.leyou.item.entity.TbBrand;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface TbBrandMapper extends BaseMapper<TbBrand> {
 
+    @Select("select b.* from tb_category_brand a,tb_brand b where a.brand_id=b.id and a.category_id=#{cid}")
+    List<TbBrand> selectBrandListByCid(@Param("cid") Long cid);
 }

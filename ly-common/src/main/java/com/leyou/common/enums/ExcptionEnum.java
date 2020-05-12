@@ -24,6 +24,7 @@ public enum ExcptionEnum {
     CATEGORY_NOT_FOUND(404, "商品分类不存在！"),
     BRAND_NOT_FOUND(404, "品牌不存在！"),
     SPEC_NOT_FOUND(404, "规格不存在！"),
+    SPEC_NOT_SaveFOUND(404, "规格组保存失败！"),
     SPEC_GROUP_NOT_FOUND(404, "规格组不存在！"),
     GOODS_NOT_FOUND(404, "商品不存在！"),
     GOODS_DETAIL_NOT_FOUND(404, "商品详情不存在！"),

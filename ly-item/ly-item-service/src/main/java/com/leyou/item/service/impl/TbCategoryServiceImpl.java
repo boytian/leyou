@@ -46,4 +46,21 @@ public class TbCategoryServiceImpl extends ServiceImpl<TbCategoryMapper, TbCateg
         List<CategoryDTO> categoryDTOS = BeanHelper.copyWithCollection(tbCategories, CategoryDTO.class);
         return categoryDTOS;
     }
+
+    /**
+     * 根据品牌id 查询分类集合
+     * @param brandId
+     * @return
+     */
+    @Override
+    public List<CategoryDTO> findCategoryListByBrandId(Long brandId) {
+//        2表联查，根据品牌id 返回分类集合
+        List<TbCategory> tbCategoryList = this.getBaseMapper().selectCategoryByBrandId(brandId);
+        if(CollectionUtils.isEmpty(tbCategoryList)){
+            throw new LyException(ExcptionEnum.CATEGORY_NOT_FOUND);
+        }
+        return BeanHelper.copyWithCollection(tbCategoryList,CategoryDTO.class);
+
+    }
+
 }

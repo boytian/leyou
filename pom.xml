@@ -12,6 +12,12 @@
         <module>ly-gateway</module>
         <module>ly-common</module>
         <module>ly-item</module>
+        <module>ly-upload</module>
+        <module>Ly-search</module>
+        <module>ly-page</module>
+        <module>ly-user</module>
+        <module>ly-sms</module>
+        <module>ly-auth</module>
     </modules>
     <packaging>pom</packaging>
 

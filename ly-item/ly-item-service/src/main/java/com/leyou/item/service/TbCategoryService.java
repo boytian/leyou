@@ -4,6 +4,7 @@ import com.leyou.item.dto.CategoryDTO;
 import com.leyou.item.entity.TbCategory;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -16,4 +17,7 @@ import java.util.List;
  */
 public interface TbCategoryService extends IService<TbCategory> {
     List<CategoryDTO> tbCategoryService(Long pid);
+
+    List<CategoryDTO> findCategoryListByBrandId(Long brandId);
+
 }

@@ -2,6 +2,7 @@ package com.leyou.item.service;
 
 import com.leyou.item.entity.TbApplication;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.leyou.item.entity.TbApplicationPrivilege;
 
 /**
  * <p>

@@ -5,6 +5,9 @@ spring:
   application:
     #微服务名称
     name: ly-gateway
+#  servlet:  #使用了nginx，跳过网关
+#    multipart:
+#      max-file-size: 5MB # 限制文件上传的大小
 eureka:
   client:
     service-url:
@@ -12,13 +15,13 @@ eureka:
     #心跳时间
     registry-fetch-interval-seconds: 5
 #配置熔断降级
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 6000 # 熔断超时时长：6000ms
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 6000 # 熔断超时时长：6000ms
 ribbon:
   ConnectTimeout: 500 # ribbon链接超时时长
   ReadTimeout: 2000 # ribbon读取超时时长
@@ -29,6 +32,11 @@ zuul:
   prefix: /api
   routes:
     item-service: /item/** # 将商品微服务映射到/item/**
+    upload-service: /upload/**  #上传微服 务的映射 新增
+    search-service: /search/** #全文检索映射地址
+    user-service: /user/** #用户
+    auth-service: /auth/** # 授权中心微服务
+  sensitive-headers: #接感觉cookie敏感头信息
 ly:
   cors:
     allowedOrigins:
@@ -46,3 +54,15 @@ ly:
       - HEAD
     maxAge: 3600
     filterPath: "/**"
+  jwt:
+    pubKeyPath: C:\\Users\\Administrator\\Desktop\\leyou笔记\\day16\\id_sra.pub # 公钥地址
+    user: #跟cookie相关的配置
+      cookieName: LY_TOKEN #cookie名称
+  filter:
+    allowPaths:
+      - /api/auth/login
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item
